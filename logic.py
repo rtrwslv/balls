@@ -59,6 +59,4 @@ class Ball:
             return False
         movement = (accel * (time ** 2)) / 2
         result = movement / self.length * 360
-        while result > 360:
-            result -= 360
-        return round(result, 2)
+        return round(result % 360, 2)
