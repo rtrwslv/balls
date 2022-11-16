@@ -4,8 +4,7 @@ from math import pi
 
 class Ball:
 
-    def __init__(self, radius: float) -> None:
-        
+    def __init__(self, radius: float) -> None:   
         """Ball initialization. If this ball doesn't exists raise error.
 
         Args:
@@ -14,7 +13,6 @@ class Ball:
         Raises:
             Exception: if radius of ball isn't valid.
         """
-        
         self.radius = radius
         self.length = 2 * pi * self.radius
         if not self.is_valid():
@@ -31,7 +29,6 @@ class Ball:
         return self.radius > 0
 
     def evenMovement(self, speed: float, time: float) -> float:
-        
         """Counts the angle of deviation of the ball point with even motion.
         Rounds it to the 2nd digit after the dot.
 
@@ -41,8 +38,7 @@ class Ball:
         
         Raises:
             Exception: if time or speed isn't valid.
-        """
-        
+        """ 
         if not isinstance(speed, float) or not isinstance(time, float) \
         or speed < 0 or time < 0:
             raise Exception("Что-то не так со временем, или скоростью")
@@ -51,8 +47,7 @@ class Ball:
             result -= 360
         return round(result, 2)
 
-    def acceleratedMotion(self, accel: float, time: float) -> float:
-        
+    def acceleratedMotion(self, accel: float, time: float) -> float: 
         """Counts the angle of deviation of the ball point with accelerated motion.
         Rounds it to the 2nd digit after the dot.
 
@@ -63,7 +58,6 @@ class Ball:
         Raises:
             Exception: if time or acceleration isn't valid.
         """
-        
         if not isinstance(accel, float) or not isinstance(time, float) \
         or accel < 0 or time < 0:
             raise Exception("Что-то не так со временем, или ускорением")
