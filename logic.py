@@ -43,7 +43,8 @@ class Ball:
             Exception: if time or speed isn't valid.
         """
         
-        if not isinstance((speed, time), (float, int)) or speed < 0 or time < 0:
+        if not isinstance(speed, float) or not isinstance(time, float) \
+        or speed < 0 or time < 0:
             raise Exception("Что-то не так со временем, или скоростью")
         result = round((speed * time) / (self.length) * 360, 2)
         while result > 360:
@@ -63,7 +64,8 @@ class Ball:
             Exception: if time or acceleration isn't valid.
         """
         
-        if not isinstance((accel, time), (float, int)) or accel < 0 or time < 0:
+        if not isinstance(accel, float) or not isinstance(time, float) \
+        or accel < 0 or time < 0:
             raise Exception("Что-то не так со временем, или ускорением")
         movement = (accel * (time ** 2)) / 2
         result = movement / self.length * 360
