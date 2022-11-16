@@ -1,6 +1,7 @@
 """Class of ball with some methods."""
 from math import pi
 
+
 class Ball:
 
     def __init__(self, radius: float) -> None:
