@@ -4,7 +4,7 @@ from math import pi
 
 class Ball:
 
-    def __init__(self, radius: float) -> None:   
+    def __init__(self, radius: float) -> None:
         """Ball initialization. If this ball doesn't exists raise error.
 
         Args:
@@ -47,7 +47,7 @@ class Ball:
             result -= 360
         return round(result, 2)
 
-    def acceleratedMotion(self, accel: float, time: float) -> float: 
+    def acceleratedMotion(self, accel: float, time: float) -> float:
         """Counts the angle of deviation of the ball point with accelerated motion.
         Rounds it to the 2nd digit after the dot.
 
