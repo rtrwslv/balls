@@ -13,8 +13,9 @@ class Ball:
             Exception: if radius of ball isn't valid.
         """
         self.radius = radius
+        self.length = 2 * pi * self.radius
         if not self.is_valid():
-            raise Exception
+            raise Exception("Что-то не так...Проверьте что радиус - положительное число")
 
     def is_valid(self) -> bool:
         """Check if such a ball exists.
@@ -34,7 +35,7 @@ class Ball:
             speed (float): speed of ball.
             time (float): ball movement time.
         """
-        result = round((speed * time) / (2 * pi * self.radius) * 360, 2)
+        result = round((speed * time) / (self.length) * 360, 2)
         while result > 360:
             result -= 360
         return round(result, 2)
@@ -54,5 +55,5 @@ class Ball:
         return round(result, 2)
 
 
-print(Ball(1).evenMovement(4, 1))
+print(Ball(2).acceleratedMotion(8, 5))
 
