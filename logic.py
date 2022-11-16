@@ -1,10 +1,11 @@
-"""Class of ball with some methods."""
+"""Class of ball with validation and movement methods."""
 from math import pi
 
 
 class Ball:
 
     def __init__(self, radius: float) -> None:
+        
         """Ball initialization. If this ball doesn't exists raise error.
 
         Args:
@@ -13,6 +14,7 @@ class Ball:
         Raises:
             Exception: if radius of ball isn't valid.
         """
+        
         self.radius = radius
         self.length = 2 * pi * self.radius
         if not self.is_valid():
@@ -29,26 +31,40 @@ class Ball:
         return self.radius > 0
 
     def evenMovement(self, speed: float, time: float) -> float:
+        
         """Counts the angle of deviation of the ball point with even motion.
         Rounds it to the 2nd digit after the dot.
 
         Args:
             speed (float): speed of ball.
             time (float): ball movement time.
+        
+        Raises:
+            Exception: if time or speed isn't valid.
         """
+        
+        if not isinstance((speed, time), (float, int)) or speed < 0 or time < 0:
+            raise Exception("Что-то не так со временем, или скоростью")
         result = round((speed * time) / (self.length) * 360, 2)
         while result > 360:
             result -= 360
         return round(result, 2)
 
     def acceleratedMotion(self, accel: float, time: float) -> float:
+        
         """Counts the angle of deviation of the ball point with accelerated motion.
         Rounds it to the 2nd digit after the dot.
 
         Args:
             accel (float): acceleration of ball.
             time (float): ball movement time.
+        
+        Raises:
+            Exception: if time or acceleration isn't valid.
         """
+        
+        if not isinstance((accel, time), (float, int)) or accel < 0 or time < 0:
+            raise Exception("Что-то не так со временем, или ускорением")
         movement = (accel * (time ** 2)) / 2
         result = movement / self.length * 360
         while result > 360:
