@@ -53,7 +53,3 @@ class Ball:
         while result > 360:
             result -= 360
         return round(result, 2)
-
-
-print(Ball(2).acceleratedMotion(8, 5))
-
