@@ -41,9 +41,7 @@ class Ball:
         if not isinstance(time, float) or time < 0:
             return False
         result = round((speed * time) / self.length * 360, 2)
-        while result > 360:
-            result -= 360
-        return round(result, 2)
+        return round(result % 360, 2)
 
     def acceleratedMotion(self, accel: float, time: float) -> float:
         """Counts the angle of deviation of the ball point with accelerated motion.
